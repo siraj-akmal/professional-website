@@ -49,7 +49,7 @@ const Projects: React.FC = () => {
                 {project.title}
               </h3>
               
-              <p className="text-sm text-charcoal/60 dark:text-gray-400 mb-8 leading-relaxed font-light line-clamp-3">
+              <p className="text-sm text-charcoal/60 dark:text-gray-400 mb-8 leading-relaxed font-light">
                 {project.description}
               </p>
 
