@@ -17,7 +17,7 @@ export const PROJECTS: Project[] = [
   {
     id: '2',
     title: 'Boston Weather Prediction',
-    description: 'Real-time VaR (Value at Risk) monitoring tool for multi-asset portfolios. Uses Monte Carlo simulations to stress test against historical market crashes.',
+    description: 'We built a weather prediction tool using machine learning and time series models on four years of Boston weather data. An MLP classified rainy days with 83% accuracy, while AR/MA models forecasted monthly rainfall trends. We also created an interactive website to display our findings and visualizations.',
     image: 'https://res.cloudinary.com/simpleview/image/upload/v1699908801/clients/boston-redesign/6ETOS4g0_c4045e9b-d897-4012-8d4c-4ba218d7a389.jpg',
     categories: ['Machine Learning', 'Python', 'MLP'],
     githubUrl: 'https://weather-prediction-visuals.vercel.app/'
@@ -25,7 +25,7 @@ export const PROJECTS: Project[] = [
   {
     id: '3',
     title: 'AWS Finnancial Metrics Dashboard',
-    description: 'We built a weather prediction tool using machine learning and time series models on four years of Boston weather data. An MLP classified rainy days with 83% accuracy, while AR/MA models forecasted monthly rainfall trends. We also created an interactive website to display our findings and visualizations.',
+    description: 'Built a full data pipeline on AWS to process and visualize financial metrics from SEC filings. Used Lambda functions for ETL, storing data in S3, and created a Streamlit dashboard for interactive data exploration and visualization.',
     image: 'https://compote.slate.com/images/926e5009-c10a-48fe-b90e-fa0760f82fcd.png?width=1200&rect=680x453&offset=0x30',
     categories: ['AWS', 'Python', 'Streamlit'],
     githubUrl: 'https://drive.google.com/file/d/1bSkJN9iD7Zmn94Hxpn-D5jrgc0GpS6Ol/view'
