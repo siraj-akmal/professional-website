@@ -39,9 +39,6 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
           <div className="w-8 h-8 bg-forest dark:bg-primary rounded-sm flex items-center justify-center text-white dark:text-charcoal transition-colors">
             <span className="material-symbols-outlined text-[20px]">potted_plant</span>
           </div>
-          <span className="font-mono text-lg font-bold tracking-tight text-charcoal dark:text-white uppercase">
-            SIRAJ<span className="text-primary">.DEV</span>
-          </span>
         </Link>
 
         {/* Desktop Nav */}
