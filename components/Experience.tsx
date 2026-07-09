@@ -4,68 +4,73 @@ import { EXPERIENCE } from '../constants';
 
 const Experience: React.FC = () => {
   return (
-    <section className="relative w-full max-w-5xl mx-auto px-6 md:px-10 py-16 md:py-24">
-      <div className="flex flex-col gap-10 mb-20">
-        <div className="w-16 h-2 bg-primary"></div>
-        <h1 className="text-charcoal dark:text-white text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] max-w-2xl uppercase">
+    <section className="w-full max-w-5xl mx-auto px-6 md:px-12 py-16 md:py-24">
+
+      {/* Header */}
+      <div className="mb-20">
+        <div className="flex items-center gap-4 mb-8">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-mid">Career</span>
+          <span className="text-mid/40">—</span>
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-accent">03</span>
+        </div>
+        <h1
+          className="font-display font-bold leading-[0.88] tracking-[-0.02em] text-ink dark:text-chalk uppercase mb-8"
+          style={{ fontSize: 'clamp(2.5rem, 7vw, 7rem)' }}
+        >
           Professional<br/>Journey
         </h1>
-        <p className="text-forest-light dark:text-gray-400 text-lg md:text-xl font-light max-w-xl leading-relaxed">
+        <p className="text-lg font-body text-mid dark:text-chalk/60 max-w-xl leading-relaxed">
           From academic research to global asset management. A record of building high-integrity solutions at the intersection of Finance and Technology.
         </p>
       </div>
 
-      <div className="relative flex flex-col">
-        {EXPERIENCE.map((item, index) => (
-          <div key={item.id} className="group flex flex-col md:flex-row gap-0 md:gap-12 relative pb-16 last:pb-0">
-            {/* Timeline Left Column */}
-            <div className="hidden md:flex w-48 flex-col items-end pt-10 pr-10 text-right shrink-0">
-              <span className={`font-mono text-sm font-bold ${item.isCurrent ? 'text-primary' : 'text-charcoal/60 dark:text-gray-400'}`}>
-                {item.duration}
-              </span>
-              <span className="font-mono text-xs text-charcoal/40 dark:text-gray-500 mt-2 font-bold tracking-widest">
-                {item.period}
-              </span>
-            </div>
+      {/* Timeline */}
+      <div className="flex flex-col">
+        {EXPERIENCE.map((item) => (
+          <div key={item.id} className="group border-t-2 border-ink dark:border-chalk">
+            <div className="flex flex-col md:flex-row md:items-start py-8 md:py-10 gap-6 md:gap-0">
 
-            {/* Timeline center line */}
-            <div className="flex flex-col items-center relative min-h-full">
-              <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1px] bg-concrete-dark dark:bg-white/10 group-last:hidden"></div>
-              <div className={`w-4 h-4 rounded-full ${item.isCurrent ? 'bg-primary border-4 border-background-light dark:border-background-dark ring-1 ring-primary' : 'bg-concrete dark:bg-white/10 border-2 border-concrete-dark dark:border-white/20'} z-10 mt-10 shadow-sm transition-all group-hover:scale-125`}></div>
-            </div>
+              {/* Left meta */}
+              <div className="md:w-52 flex-shrink-0 md:pr-8">
+                <div className={`font-mono text-xs font-bold uppercase tracking-wider mb-1 ${item.isCurrent ? 'text-accent' : 'text-mid'}`}>
+                  {item.duration}
+                </div>
+                <div className="font-mono text-[10px] text-mid/60 uppercase tracking-wider">
+                  {item.period}
+                </div>
+              </div>
 
-            {/* Content Column */}
-            <div className="flex-1 pt-4 md:pt-0 pl-10 md:pl-0">
-              <div className="bg-concrete dark:bg-white/5 p-8 md:p-10 rounded-sm border border-concrete-dark dark:border-white/10 slab-shadow transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 relative">
-                <div className="md:hidden flex flex-col gap-1 mb-4">
-                   <span className="font-mono text-[10px] font-bold text-primary uppercase tracking-widest">
-                    {item.duration}
-                  </span>
-                  <span className="font-mono text-[10px] text-charcoal/40 dark:text-gray-500 font-bold uppercase tracking-widest">
-                    {item.period}
-                  </span>
+              {/* Divider on desktop */}
+              <div className="hidden md:block w-px bg-ink/10 dark:bg-chalk/10 mr-8 self-stretch" />
+
+              {/* Content */}
+              <div className="flex-1">
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <div>
+                    <h3 className="font-display text-xl md:text-2xl font-bold text-ink dark:text-chalk uppercase tracking-tight leading-tight mb-1 group-hover:text-accent transition-colors duration-150">
+                      {item.role}
+                    </h3>
+                    <span className="font-mono text-sm font-bold text-accent uppercase tracking-wide">
+                      {item.company}
+                    </span>
+                  </div>
+                  {item.isCurrent && (
+                    <span className="flex-shrink-0 border-2 border-accent text-accent font-mono text-[9px] font-bold uppercase tracking-widest px-2 py-1">
+                      Current
+                    </span>
+                  )}
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-bold text-charcoal dark:text-white mb-2 leading-tight">
-                  {item.role}
-                </h3>
-                
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="material-symbols-outlined text-lg text-primary">
-                    {item.type === 'internship' ? 'explore' : item.type === 'education' ? 'school' : 'apartment'}
-                  </span>
-                  <span className="text-forest dark:text-primary font-mono font-bold text-sm tracking-tight uppercase">
-                    {item.company}
-                  </span>
-                </div>
-
-                <p className="text-charcoal/70 dark:text-gray-300 mb-8 leading-relaxed font-light text-base md:text-lg">
+                <p className="text-base text-mid dark:text-chalk/60 leading-relaxed font-body mb-6 max-w-2xl">
                   {item.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2">
                   {item.skills.map(skill => (
-                    <span key={skill} className="inline-flex items-center px-4 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-widest bg-background-light dark:bg-white/5 text-forest dark:text-gray-300 border border-concrete-dark dark:border-white/10">
+                    <span
+                      key={skill}
+                      className="font-mono text-[10px] font-bold uppercase tracking-wider border border-ink/20 dark:border-chalk/20 px-3 py-1 text-mid dark:text-chalk/60"
+                    >
                       {skill}
                     </span>
                   ))}
@@ -74,34 +79,27 @@ const Experience: React.FC = () => {
             </div>
           </div>
         ))}
+        <div className="border-t-2 border-ink dark:border-chalk" />
       </div>
 
-      <div className="mt-24 bg-forest dark:bg-primary/10 py-16 px-8 md:px-16 rounded-sm border border-forest-light dark:border-primary/20 text-center flex flex-col items-center gap-8 relative overflow-hidden group">
-        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity">
-           <div className="bg-texture w-full h-full"></div>
-        </div>
-
-        <div className="w-12 h-12 bg-white/10 dark:bg-primary rounded-full flex items-center justify-center border border-white/10 text-primary dark:text-charcoal shadow-sm">
-          <span className="material-symbols-outlined">description</span>
-        </div>
-        
-        <div className="flex flex-col gap-4 max-w-xl">
-          <h2 className="text-3xl md:text-4xl font-black text-white dark:text-white tracking-tight leading-none uppercase">
+      {/* Resume CTA */}
+      <div className="mt-20 border-2 border-ink dark:border-chalk shadow-brutal dark:shadow-brutal-chalk bg-ink dark:bg-chalk p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div>
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-chalk dark:text-ink uppercase tracking-tight mb-2">
             Full Resume Available
           </h2>
-          <p className="text-white/60 dark:text-primary/60 text-lg font-light">
-            Download the detailed PDF version for a complete look at my certifications, core competencies, and academic achievements.
+          <p className="text-chalk/60 dark:text-ink/60 font-body">
+            Download the detailed PDF for certifications, core competencies, and academic achievements.
           </p>
         </div>
-
-        <a 
-          href="https://www.istockphoto.com/photos/work-in-progress" 
-          target="_blank" 
+        <a
+          href="https://www.istockphoto.com/photos/work-in-progress"
+          target="_blank"
           rel="noopener noreferrer"
-          className="group relative flex items-center justify-center gap-3 bg-primary text-charcoal hover:bg-white dark:hover:bg-white transition-all duration-500 h-14 px-10 rounded-sm font-bold tracking-widest font-mono text-xs uppercase shadow-2xl"
+          className="flex-shrink-0 flex items-center gap-3 bg-accent text-chalk hover:bg-chalk hover:text-ink font-mono text-xs font-bold uppercase tracking-widest px-8 py-4 border-2 border-accent hover:border-chalk transition-all duration-150"
         >
-          <span className="material-symbols-outlined text-xl transition-transform group-hover:-translate-y-1">download</span>
-          <span>DOWNLOAD PDF RESUME</span>
+          <span className="material-symbols-outlined text-[18px]">download</span>
+          Download PDF
         </a>
       </div>
     </section>

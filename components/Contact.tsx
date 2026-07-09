@@ -5,76 +5,65 @@ const Contact: React.FC = () => {
   const email = 'sra.303@gmail.com';
 
   return (
-    <section className="flex-grow flex flex-col justify-center px-6 md:px-12 py-16 md:py-24 lg:py-40 w-full max-w-7xl mx-auto">
-      <div className="w-full mb-20 animate-fade-in-down">
-        <span className="inline-flex items-center gap-6 text-[10px] font-mono font-bold tracking-[0.4em] text-primary uppercase">
-          <span className="w-16 h-[1px] bg-primary"></span>
-          Get In Touch
-        </span>
+    <section className="flex-grow flex flex-col justify-center px-6 md:px-12 lg:px-24 py-16 md:py-24 w-full max-w-7xl mx-auto">
+
+      {/* Section label */}
+      <div className="flex items-center gap-4 border-b-2 border-ink dark:border-chalk pb-6 mb-16">
+        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-mid">Get In Touch</span>
+        <span className="text-mid/40">—</span>
+        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-accent">05</span>
       </div>
 
-      <div className="flex flex-col gap-16 lg:gap-24 w-full">
-        <div className="flex flex-col gap-12 group/email">
-          <div className="overflow-hidden">
-            <p className="text-xl md:text-2xl text-charcoal/50 dark:text-gray-400 font-light leading-relaxed max-w-2xl">
-              Looking to collaborate on a new project or just want to chat about coffee and code? Feel free to reach out.
-            </p>
-          </div>
-          
-          <div className="relative inline-block w-fit">
-            <a 
-              className="block font-mono text-[10vw] md:text-7xl lg:text-8xl xl:text-[7vw] font-bold tracking-tighter leading-[0.85] text-charcoal dark:text-white hover:text-primary transition-all duration-500 whitespace-nowrap select-all decoration-clone"
+      <div className="flex flex-col gap-16">
+
+        {/* Email block */}
+        <div className="flex flex-col gap-8">
+          <p className="text-xl md:text-2xl text-mid dark:text-chalk/60 font-body leading-relaxed max-w-2xl">
+            Looking to collaborate on a new project or just want to chat about coffee and code? Feel free to reach out.
+          </p>
+
+          <div className="group/email">
+            <a
               href={`mailto:${email}`}
+              className="font-display font-bold tracking-tighter leading-[0.85] text-ink dark:text-chalk hover:text-accent transition-colors duration-300 uppercase break-all"
+              style={{ fontSize: 'clamp(1.75rem, 5.5vw, 6rem)' }}
             >
-              sra.303@<br className="md:hidden"/>gmail.com
+              {email}
             </a>
-            <div className="h-2 md:h-4 w-0 bg-primary mt-8 transition-all duration-700 ease-out group-hover/email:w-full"></div>
+            <div className="h-[3px] w-0 bg-accent mt-4 group-hover/email:w-full transition-all duration-500 ease-out" />
           </div>
 
-          <div className="mt-8">
-            <button 
-              onClick={() => navigator.clipboard.writeText(email)}
-              className="group flex items-center gap-4 px-8 py-5 bg-transparent border border-charcoal/10 dark:border-white/10 rounded-sm hover:bg-charcoal hover:border-charcoal dark:hover:bg-primary dark:hover:text-charcoal transition-all duration-300 shadow-sm hover:shadow-2xl"
-            >
-              <span className="material-symbols-outlined text-charcoal/30 dark:text-gray-400 group-hover:text-white dark:group-hover:text-charcoal text-[22px]">content_copy</span>
-              <span className="text-[10px] font-mono font-bold tracking-[0.3em] uppercase text-charcoal dark:text-gray-300 group-hover:text-white dark:group-hover:text-charcoal">Copy Address</span>
-            </button>
-          </div>
+          <button
+            onClick={() => navigator.clipboard.writeText(email)}
+            className="group flex items-center gap-3 border-2 border-ink dark:border-chalk px-6 py-3 hover:bg-ink hover:text-chalk dark:hover:bg-chalk dark:hover:text-ink transition-all duration-150 w-fit text-ink dark:text-chalk"
+          >
+            <span className="material-symbols-outlined text-[18px]">content_copy</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.3em]">Copy Address</span>
+          </button>
         </div>
 
-        <div className="flex flex-wrap gap-8 pt-16 border-t border-concrete-dark dark:border-white/5">
+        {/* Social links */}
+        <div className="border-t-2 border-ink dark:border-chalk pt-12 flex flex-wrap gap-4">
           {[
-            { 
-              label: 'LinkedIn', 
-              sub: 'Professional', 
-              icon: 'share', 
-              url: 'https://www.linkedin.com/in/siraj-akmal/' 
-            },
-            { 
-              label: 'GitHub', 
-              sub: 'Code', 
-              icon: 'code', 
-              url: 'https://github.com/siraj-akmal' 
-            }
+            { label: 'LinkedIn', sub: 'Professional Network', url: 'https://www.linkedin.com/in/siraj-akmal/' },
+            { label: 'GitHub',   sub: 'Code Repository',      url: 'https://github.com/siraj-akmal' },
           ].map(social => (
-            <a 
+            <a
               key={social.label}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-6 pr-10 pl-8 py-5 bg-concrete dark:bg-white/5 border border-transparent hover:border-primary/20 rounded-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+              className="group flex flex-col border-2 border-ink dark:border-chalk px-8 py-6 hover:border-accent hover:shadow-brutal-accent transition-all duration-150 min-w-[180px]"
             >
-              <span className="material-symbols-outlined text-charcoal/30 dark:text-gray-500 group-hover:text-primary text-[32px]">
-                {social.icon}
+              <span className="font-display text-xl font-bold uppercase tracking-tight text-ink dark:text-chalk group-hover:text-accent transition-colors mb-1">
+                {social.label}
               </span>
-              <div className="flex flex-col">
-                <span className="text-lg font-mono font-bold leading-none text-charcoal dark:text-white mb-2 uppercase tracking-tighter">
-                  {social.label}
-                </span>
-                <span className="text-[9px] font-bold text-charcoal/40 dark:text-gray-500 uppercase tracking-widest group-hover:text-primary">
-                  {social.sub}
-                </span>
-              </div>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-mid">
+                {social.sub}
+              </span>
+              <span className="material-symbols-outlined text-[16px] text-mid group-hover:text-accent mt-5 transition-colors self-end">
+                open_in_new
+              </span>
             </a>
           ))}
         </div>

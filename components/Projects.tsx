@@ -4,69 +4,88 @@ import { PROJECTS } from '../constants';
 
 const Projects: React.FC = () => {
   return (
-    <section className="w-full max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24">
-      <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-10">
-        <div className="max-w-2xl">
-          <div className="flex items-center gap-3 mb-4 text-forest dark:text-primary">
-            <span className="material-symbols-outlined text-sm">terminal</span>
-            <span className="font-mono text-xs uppercase tracking-[0.3em] font-bold">Selected Works</span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-charcoal dark:text-white leading-[0.9] uppercase">
-            Recent <span className="text-terracotta italic font-serif normal-case tracking-normal">Creations</span>
-          </h1>
-          <p className="text-charcoal/50 dark:text-gray-400 mt-6 text-lg max-w-lg leading-relaxed font-light">
-            A collection of digital tools, experiments, and full-stack applications built with code and caffeine.
-          </p>
+    <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
+
+      {/* Section header */}
+      <div className="flex items-center justify-between border-b-2 border-ink dark:border-chalk pb-6 mb-14">
+        <div className="flex items-center gap-4">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-mid">Selected Works</span>
+          <span className="text-mid/40">—</span>
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-accent">04</span>
         </div>
       </div>
 
-      {/* Changed from grid to flex-wrap with justify-center to center orphans in the last row */}
-      <div className="flex flex-wrap justify-center gap-10 mb-20">
-        {PROJECTS.map((project) => (
-          <article 
-            key={project.id} 
-            className="group relative bg-concrete dark:bg-white/5 rounded-sm overflow-hidden shadow-slab hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col border-b-[4px] border-transparent hover:border-forest dark:hover:border-primary w-full md:w-[calc(50%-20px)] lg:w-[calc(33.333%-27px)]"
-          >
-            <div className="relative h-56 w-full overflow-hidden">
-              <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors z-10"></div>
-              <img 
-                src={project.image} 
-                alt={project.title}
-                className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
-              />
-            </div>
+      {/* Title block */}
+      <div className="mb-16">
+        <h1
+          className="font-display font-bold leading-[0.88] tracking-[-0.02em] text-ink dark:text-chalk uppercase mb-6"
+          style={{ fontSize: 'clamp(2.5rem, 7vw, 7rem)' }}
+        >
+          Recent<br/>
+          <span className="text-accent">Creations</span>
+        </h1>
+        <p className="text-lg font-body text-mid dark:text-chalk/60 max-w-xl leading-relaxed">
+          A collection of digital tools, experiments, and full-stack applications built with code and caffeine.
+        </p>
+      </div>
 
-            <div className="p-8 flex flex-col flex-grow">
-              <div className="flex gap-2 mb-4 flex-wrap">
-                {project.categories.map(cat => (
-                  <span key={cat} className="px-3 py-1 bg-white dark:bg-charcoal/50 border border-concrete-dark dark:border-white/10 rounded-full text-[9px] font-bold text-forest dark:text-primary uppercase tracking-widest">
-                    {cat}
-                  </span>
-                ))}
+      {/* Projects list */}
+      <div className="flex flex-col">
+        {PROJECTS.map((project, index) => (
+          <article key={project.id} className="group border-t-2 border-ink dark:border-chalk">
+            <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-10 py-10 md:py-12">
+
+              {/* Index number */}
+              <div className="hidden md:block flex-shrink-0 font-mono text-6xl font-bold text-ink/08 dark:text-chalk/[0.06] w-16 pt-2 select-none leading-none">
+                {String(index + 1).padStart(2, '0')}
               </div>
-              
-              <h3 className="font-mono text-xl font-bold text-charcoal dark:text-white mb-3 group-hover:text-terracotta dark:group-hover:text-primary transition-colors tracking-tight">
-                {project.title}
-              </h3>
-              
-              <p className="text-sm text-charcoal/60 dark:text-gray-400 mb-8 leading-relaxed font-light">
-                {project.description}
-              </p>
 
-              <div className="mt-auto pt-6 border-t border-concrete-dark/50 dark:border-white/10 flex items-center justify-center">
-                <a 
+              {/* Thumbnail */}
+              <div className="md:w-52 lg:w-64 flex-shrink-0">
+                <div className="border-2 border-ink dark:border-chalk overflow-hidden aspect-video group-hover:shadow-brutal-accent group-hover:border-accent transition-all duration-200">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                  />
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="flex-1 flex flex-col gap-4">
+                <div className="flex flex-wrap gap-2">
+                  {project.categories.map(cat => (
+                    <span
+                      key={cat}
+                      className="font-mono text-[10px] font-bold uppercase tracking-wider border border-accent/50 text-accent px-2 py-0.5"
+                    >
+                      {cat}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-ink dark:text-chalk uppercase tracking-tight leading-tight group-hover:text-accent transition-colors duration-150">
+                  {project.title}
+                </h3>
+
+                <p className="text-sm md:text-base text-mid dark:text-chalk/60 leading-relaxed font-body max-w-xl">
+                  {project.description}
+                </p>
+
+                <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-charcoal dark:text-white hover:text-terracotta dark:hover:text-primary transition-colors group/link"
+                  className="mt-2 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-ink dark:text-chalk hover:text-accent border-b-2 border-transparent hover:border-accent transition-all duration-150 w-fit pb-0.5"
                 >
-                  <span className="material-symbols-outlined text-[18px]">open_in_new</span>
-                  Learn more
+                  <span className="material-symbols-outlined text-[16px]">open_in_new</span>
+                  View Project
                 </a>
               </div>
             </div>
           </article>
         ))}
+        <div className="border-t-2 border-ink dark:border-chalk" />
       </div>
     </section>
   );

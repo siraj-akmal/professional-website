@@ -1,8 +1,9 @@
 
-import React, { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
+import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -20,18 +21,18 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <ScrollToTop />
-      <div className="relative flex flex-col min-h-screen bg-texture">
+      <div className="flex flex-col min-h-screen bg-chalk dark:bg-ink">
         <Navbar onToggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
-        
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/"           element={<Hero />} />
+            <Route path="/about"      element={<About />} />
             <Route path="/experience" element={<Experience />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects"   element={<Projects />} />
+            <Route path="/contact"    element={<Contact />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </HashRouter>
   );

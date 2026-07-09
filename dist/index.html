@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Siraj Akmal | Finance & Data Science</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "ink":           "#111111",
+                        "chalk":         "#F4F1EA",
+                        "chalk-dark":    "#E5E2D9",
+                        "chalk-darker":  "#CEC9BF",
+                        "accent":        "#2563EB",
+                        "accent-dark":   "#1D4ED8",
+                        "mid":           "#6B6866",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body":    ["Inter", "sans-serif"],
+                        "mono":    ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "sm":      "0px",
+                        "md":      "0px",
+                        "lg":      "0px",
+                        "xl":      "0px",
+                        "2xl":     "0px",
+                        "full":    "9999px",
+                    },
+                    boxShadow: {
+                        "brutal":        "4px 4px 0px 0px #111111",
+                        "brutal-lg":     "8px 8px 0px 0px #111111",
+                        "brutal-sm":     "2px 2px 0px 0px #111111",
+                        "brutal-accent": "4px 4px 0px 0px #2563EB",
+                        "brutal-chalk":  "4px 4px 0px 0px #F4F1EA",
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F4F1EA; }
+        ::-webkit-scrollbar-thumb { background: #111111; border-radius: 0; }
+        ::-webkit-scrollbar-thumb:hover { background: #2563EB; }
+
+        ::selection { background: #111111; color: #F4F1EA; }
+        .dark ::selection { background: #F4F1EA; color: #111111; }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        @keyframes marquee {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track { animation: none; }
+        }
+    </style>
+
+    <link rel="stylesheet" href="/index.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+        "react/":           "https://esm.sh/react@^19.2.3/",
+        "react":            "https://esm.sh/react@^19.2.3",
+        "react-dom/":       "https://esm.sh/react-dom@^19.2.3/"
+      }
+    }
+    </script>
+  <script type="module" crossorigin src="/assets/index-C8TL1NM0.js"></script>
+</head>
+<body class="bg-chalk dark:bg-ink text-ink dark:text-chalk font-body antialiased">
+    <div id="root"></div>
+</body>
+</html>
