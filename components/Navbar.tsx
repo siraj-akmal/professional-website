@@ -2,12 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-interface NavbarProps {
-  onToggleDarkMode: () => void;
-  isDarkMode: boolean;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
+const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -58,17 +53,6 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Dark mode toggle */}
-          <button
-            onClick={onToggleDarkMode}
-            className="w-9 h-9 flex items-center justify-center border-2 border-ink dark:border-chalk bg-transparent hover:bg-ink hover:text-chalk dark:hover:bg-chalk dark:hover:text-ink transition-all duration-150 text-ink dark:text-chalk focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-chalk dark:focus-visible:ring-offset-ink"
-            aria-label="Toggle Dark Mode"
-          >
-            <span className="material-symbols-outlined text-[18px]">
-              {isDarkMode ? 'light_mode' : 'dark_mode'}
-            </span>
-          </button>
-
           {/* CTA */}
           <Link
             to="/contact"

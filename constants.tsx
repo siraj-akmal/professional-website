@@ -12,6 +12,14 @@ export const TECH_STACK = [
 
 export const PROJECTS: Project[] = [
   {
+    id: '6',
+    title: 'Kalshi BTC Scalping Strategy',
+    description: 'Developed and tested a volatility-based trading signal for Kalshi\'s now-defunct hourly Bitcoin bracket markets ($250-wide bands), inspired by the scalping strategies day traders use in prediction markets. Simulated 10,000 Monte Carlo price paths per hour using Geometric Brownian Motion to score bracket probability, then validated the signal against 3 months of BTC data (2,209 hours). Found a positive-EV edge after fees when filtering for high-confidence signals, low volatility, and avoiding macro event windows.',
+    image: asset('projects/kalshi-btc-scalping.svg'),
+    categories: ['Python', 'Risk', 'Backtesting'],
+    githubUrl: 'https://github.com/siraj-akmal/kalshi-scalping'
+  },
+  {
     id: '1',
     title: 'Onboarding RAG Chatbot',
     description: 'Built a full-stack application that allows users to upload documents, which are automatically chunked and stored in a vector database for semantic search. Integrated an Ollama-hosted local LLM to enable users to ask questions and receive context-aware answers based on the uploaded content.',
