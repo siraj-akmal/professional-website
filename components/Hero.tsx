@@ -5,7 +5,7 @@ import { PROJECTS } from '../constants';
 
 const Hero: React.FC = () => {
   // Change the index to feature a different project in the hero card.
-  const featured = PROJECTS[0];
+  const featured = PROJECTS.find(p => p.id === '6')!;
 
   return (
     <section className="relative min-h-[calc(100vh-4rem)] flex flex-col">

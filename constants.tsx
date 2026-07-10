@@ -12,6 +12,14 @@ export const TECH_STACK = [
 
 export const PROJECTS: Project[] = [
   {
+    id: '7',
+    title: 'ReadRecall',
+    description: 'An iOS news reader that makes you actually remember what you read: finish an article, opt into a short AI-generated quiz, and every question becomes a spaced-repetition flashcard reviewed daily. Built solo with SwiftUI and SwiftData, with a dependency-free Swift package for the core logic (SM-2 scheduler, RSS parsing, on-device article extraction) covered by 106 deterministic checks. Quiz generation runs through three interchangeable engines behind one protocol — a free local Ollama model by default, or a BYO-key Claude/OpenAI backend.',
+    image: asset('projects/readrecall.svg'),
+    categories: ['iOS', 'SwiftUI', 'AI'],
+    githubUrl: 'https://github.com/siraj-akmal/read-recall'
+  },
+  {
     id: '6',
     title: 'Kalshi BTC Scalping Strategy',
     description: 'Developed and tested a volatility-based trading signal for Kalshi\'s now-defunct hourly Bitcoin bracket markets ($250-wide bands), inspired by the scalping strategies day traders use in prediction markets. Simulated 10,000 Monte Carlo price paths per hour using Geometric Brownian Motion to score bracket probability, then validated the signal against 3 months of BTC data (2,209 hours). Found a positive-EV edge after fees when filtering for high-confidence signals, low volatility, and avoiding macro event windows.',
