@@ -1,5 +1,5 @@
-See website here: https://siraj-akmal.github.io/professional-website/
+# Siraj Akmal — Personal Website
 
-Still to update:
-1. live resume
-2. rest of projects
+Live: https://siraj-akmal.github.io/professional-website/
+
+React + TypeScript + Vite, deployed via GitHub Actions on push to `main`.
