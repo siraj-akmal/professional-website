@@ -1,6 +1,11 @@
 
 import { Project, ExperienceItem } from './types';
 
+// Resolves a path in /public against Vite's base URL so assets work both
+// locally ("/") and on GitHub Pages ("/professional-website/").
+// To swap in a real image, drop the file in /public and update the path here.
+const asset = (p: string) => `${import.meta.env.BASE_URL}${p}`;
+
 export const TECH_STACK = [
   'Python', 'SQL', 'R', 'Excel/VBA', 'Tableau', 'PowerBI', 'Git', 'Pandas', 'NumPy', 'Scikit-Learn', 'Aladdin'
 ];
@@ -10,23 +15,23 @@ export const PROJECTS: Project[] = [
     id: '1',
     title: 'Onboarding RAG Chatbot',
     description: 'Built a full-stack application that allows users to upload documents, which are automatically chunked and stored in a vector database for semantic search. Integrated an Ollama-hosted local LLM to enable users to ask questions and receive context-aware answers based on the uploaded content.',
-    image: 'https://img.freepik.com/premium-vector/robot-chat-chat-bot-logo-modern-conversation-automatic-technology-logo-design-vector-template_148524-1362.jpg?semt=ais_hybrid&w=740',
+    image: asset('projects/onboarding-rag-chatbot.svg'),
     categories: ['AI', 'Python', 'Redis'],
     githubUrl: 'https://github.com/siraj-akmal/RAG-onboarding'
   },
   {
     id: '2',
     title: 'Boston Weather Prediction',
-    description: 'We built a weather prediction tool using machine learning and time series models on four years of Boston weather data. An MLP classified rainy days with 83% accuracy, while AR/MA models forecasted monthly rainfall trends. We also created an interactive website to display our findings and visualizations.',
-    image: 'https://res.cloudinary.com/simpleview/image/upload/v1699908801/clients/boston-redesign/6ETOS4g0_c4045e9b-d897-4012-8d4c-4ba218d7a389.jpg',
+    description: 'Built a weather prediction tool using machine learning and time series models on four years of Boston weather data. An MLP classified rainy days with 83% accuracy, while AR/MA models forecasted monthly rainfall trends. I also built an interactive website to display the findings and visualizations.',
+    image: asset('projects/boston-weather-prediction.svg'),
     categories: ['Machine Learning', 'Python', 'MLP'],
     githubUrl: 'https://weather-prediction-visuals.vercel.app/'
   },
   {
     id: '3',
-    title: 'AWS Finnancial Metrics Dashboard',
+    title: 'AWS Financial Metrics Dashboard',
     description: 'Built a full data pipeline on AWS to process and visualize financial metrics from SEC filings. Used Lambda functions for ETL, storing data in S3, and created a Streamlit dashboard for interactive data exploration and visualization.',
-    image: 'https://compote.slate.com/images/926e5009-c10a-48fe-b90e-fa0760f82fcd.png?width=1200&rect=680x453&offset=0x30',
+    image: asset('projects/aws-financial-dashboard.svg'),
     categories: ['AWS', 'Python', 'Streamlit'],
     githubUrl: 'https://drive.google.com/file/d/1bSkJN9iD7Zmn94Hxpn-D5jrgc0GpS6Ol/view'
   },
@@ -34,7 +39,7 @@ export const PROJECTS: Project[] = [
     id: '4',
     title: 'MLB Player Performance',
     description: 'I built an interactive dashboard to visualize MLB player stats from the 2022 season using Python, JavaScript, HTML, and CSS. Users can compare player performance to all-time records via a warped bar graph shaped like a baseball diamond, with features like player selection, custom profiles, and dropdown options.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Major_League_Baseball_logo.svg/1024px-Major_League_Baseball_logo.svg.png',
+    image: asset('projects/mlb-player-performance.svg'),
     categories: ['HTML', 'CSS', 'JavaScript', 'Python'],
     githubUrl: 'https://drive.google.com/file/d/1onZ1Rhpgwuzp8mC9aZQ9PkwuUCowRmD0/view'
   },
@@ -42,7 +47,7 @@ export const PROJECTS: Project[] = [
     id: '5',
     title: 'NBA Salary Prediction',
     description: 'Developed an interactive dashboard to predict NBA player salaries using season statistics. Built four regression models with scikit-learn, visualized results with Plotly, and deployed the app using Dash and HTML. Included a salary calculator where users input stats to receive predictions from the best-performing model.',
-    image: 'https://wallpapercat.com/w/full/c/f/b/210824-1920x1080-desktop-1080p-lebron-james-background-photo.jpg',
+    image: asset('projects/nba-salary-prediction.svg'),
     categories: ['Machine Learning', 'Python'],
     githubUrl: 'https://drive.google.com/file/d/1hW6szHNDbxHf2Z-tHUzBBZ7v-3KouKGu/view'
   }

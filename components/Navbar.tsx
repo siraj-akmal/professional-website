@@ -46,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
             <Link
               key={item.path}
               to={item.path}
-              className={`font-mono text-xs font-bold tracking-widest uppercase transition-all duration-150 hover:text-accent ${
+              className={`font-mono text-xs font-bold tracking-widest uppercase transition-all duration-150 hover:text-accent focus-visible:outline-none focus-visible:text-accent ${
                 location.pathname === item.path
                   ? 'text-accent border-b-2 border-accent pb-0.5'
                   : 'text-mid dark:text-chalk/60'
@@ -61,7 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
           {/* Dark mode toggle */}
           <button
             onClick={onToggleDarkMode}
-            className="w-9 h-9 flex items-center justify-center border-2 border-ink dark:border-chalk bg-transparent hover:bg-ink hover:text-chalk dark:hover:bg-chalk dark:hover:text-ink transition-all duration-150 text-ink dark:text-chalk"
+            className="w-9 h-9 flex items-center justify-center border-2 border-ink dark:border-chalk bg-transparent hover:bg-ink hover:text-chalk dark:hover:bg-chalk dark:hover:text-ink transition-all duration-150 text-ink dark:text-chalk focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-chalk dark:focus-visible:ring-offset-ink"
             aria-label="Toggle Dark Mode"
           >
             <span className="material-symbols-outlined text-[18px]">
@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
           {/* CTA */}
           <Link
             to="/contact"
-            className="hidden sm:flex items-center h-9 px-5 bg-ink dark:bg-chalk text-chalk dark:text-ink font-mono text-xs font-bold uppercase tracking-widest hover:bg-accent hover:border-accent dark:hover:bg-accent dark:hover:text-chalk border-2 border-ink dark:border-chalk transition-all duration-150"
+            className="hidden sm:flex items-center h-9 px-5 bg-ink dark:bg-chalk text-chalk dark:text-ink font-mono text-xs font-bold uppercase tracking-widest hover:bg-accent hover:border-accent dark:hover:bg-accent dark:hover:text-chalk border-2 border-ink dark:border-chalk transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-chalk dark:focus-visible:ring-offset-ink"
           >
             Let's Talk
           </Link>
@@ -80,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden w-9 h-9 flex items-center justify-center border-2 border-ink dark:border-chalk text-ink dark:text-chalk"
+            className="md:hidden w-9 h-9 flex items-center justify-center border-2 border-ink dark:border-chalk text-ink dark:text-chalk focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-chalk dark:focus-visible:ring-offset-ink"
             aria-label="Toggle Menu"
           >
             <span className="material-symbols-outlined text-[20px]">

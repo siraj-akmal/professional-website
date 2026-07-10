@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" aria-label="Portrait placeholder">
+  <rect width="900" height="1200" fill="#E5E2D9"/>
+  <rect x="16" y="16" width="868" height="1168" fill="none" stroke="#111111" stroke-width="6"/>
+  <g font-family="'JetBrains Mono','Courier New',monospace" text-anchor="middle">
+    <text x="450" y="560" font-size="40" font-weight="700" letter-spacing="6" fill="#111111">PORTRAIT</text>
+    <text x="450" y="612" font-size="18" letter-spacing="6" fill="#6B6866">REPLACE /public/portrait.jpg</text>
+    <text x="450" y="672" font-size="28" fill="#2563EB">&#9733;</text>
+  </g>
+</svg>

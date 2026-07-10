@@ -69,7 +69,7 @@ const Experience: React.FC = () => {
                   {item.skills.map(skill => (
                     <span
                       key={skill}
-                      className="font-mono text-[10px] font-bold uppercase tracking-wider border border-ink/20 dark:border-chalk/20 px-3 py-1 text-mid dark:text-chalk/60"
+                      className="font-mono text-[10px] font-bold uppercase tracking-wider border-2 border-ink/20 dark:border-chalk/20 px-3 py-1 text-mid dark:text-chalk/60"
                     >
                       {skill}
                     </span>
@@ -93,10 +93,10 @@ const Experience: React.FC = () => {
           </p>
         </div>
         <a
-          href="https://www.istockphoto.com/photos/work-in-progress"
+          href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-shrink-0 flex items-center gap-3 bg-accent text-chalk hover:bg-chalk hover:text-ink font-mono text-xs font-bold uppercase tracking-widest px-8 py-4 border-2 border-accent hover:border-chalk transition-all duration-150"
+          className="flex-shrink-0 flex items-center gap-3 bg-accent text-chalk hover:bg-chalk hover:text-ink font-mono text-xs font-bold uppercase tracking-widest px-8 py-4 border-2 border-accent hover:border-chalk transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-ink dark:focus-visible:ring-offset-chalk"
         >
           <span className="material-symbols-outlined text-[18px]">download</span>
           Download PDF

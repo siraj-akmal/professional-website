@@ -1,8 +1,19 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 const Contact: React.FC = () => {
   const email = 'sra.303@gmail.com';
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      /* clipboard unavailable — no-op */
+    }
+  };
 
   return (
     <section className="flex-grow flex flex-col justify-center px-6 md:px-12 lg:px-24 py-16 md:py-24 w-full max-w-7xl mx-auto">
@@ -34,11 +45,12 @@ const Contact: React.FC = () => {
           </div>
 
           <button
-            onClick={() => navigator.clipboard.writeText(email)}
-            className="group flex items-center gap-3 border-2 border-ink dark:border-chalk px-6 py-3 hover:bg-ink hover:text-chalk dark:hover:bg-chalk dark:hover:text-ink transition-all duration-150 w-fit text-ink dark:text-chalk"
+            onClick={handleCopy}
+            aria-live="polite"
+            className="group flex items-center gap-3 border-2 border-ink dark:border-chalk px-6 py-3 hover:bg-ink hover:text-chalk dark:hover:bg-chalk dark:hover:text-ink transition-all duration-150 w-fit text-ink dark:text-chalk focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-chalk dark:focus-visible:ring-offset-ink"
           >
-            <span className="material-symbols-outlined text-[18px]">content_copy</span>
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.3em]">Copy Address</span>
+            <span className="material-symbols-outlined text-[18px]">{copied ? 'check' : 'content_copy'}</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.3em]">{copied ? 'Copied!' : 'Copy Address'}</span>
           </button>
         </div>
 
@@ -53,7 +65,7 @@ const Contact: React.FC = () => {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col border-2 border-ink dark:border-chalk px-8 py-6 hover:border-accent hover:shadow-brutal-accent transition-all duration-150 min-w-[180px]"
+              className="group flex flex-col border-2 border-ink dark:border-chalk px-8 py-6 hover:border-accent hover:shadow-brutal-accent transition-all duration-150 min-w-[180px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-chalk dark:focus-visible:ring-offset-ink"
             >
               <span className="font-display text-xl font-bold uppercase tracking-tight text-ink dark:text-chalk group-hover:text-accent transition-colors mb-1">
                 {social.label}

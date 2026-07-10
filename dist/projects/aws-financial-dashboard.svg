@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="AWS FINANCIAL DASHBOARD placeholder">
+  <rect width="1280" height="720" fill="#E5E2D9"/>
+  <rect x="16" y="16" width="1248" height="688" fill="none" stroke="#111111" stroke-width="6"/>
+  <g font-family="'JetBrains Mono','Courier New',monospace" text-anchor="middle">
+    <text x="640" y="330" font-size="46" font-weight="700" letter-spacing="6" fill="#111111">AWS FINANCIAL DASHBOARD</text>
+    <text x="640" y="392" font-size="20" letter-spacing="8" fill="#6B6866">PLACEHOLDER — REPLACE IN /public/projects</text>
+    <text x="640" y="452" font-size="30" fill="#2563EB">&#9733;</text>
+  </g>
+</svg>

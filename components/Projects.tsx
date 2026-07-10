@@ -36,17 +36,17 @@ const Projects: React.FC = () => {
             <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-10 py-10 md:py-12">
 
               {/* Index number */}
-              <div className="hidden md:block flex-shrink-0 font-mono text-6xl font-bold text-ink/08 dark:text-chalk/[0.06] w-16 pt-2 select-none leading-none">
+              <div className="hidden md:block flex-shrink-0 font-mono text-6xl font-bold text-ink/[0.08] dark:text-chalk/[0.06] w-16 pt-2 select-none leading-none">
                 {String(index + 1).padStart(2, '0')}
               </div>
 
               {/* Thumbnail */}
               <div className="md:w-52 lg:w-64 flex-shrink-0">
-                <div className="border-2 border-ink dark:border-chalk overflow-hidden aspect-video group-hover:shadow-brutal-accent group-hover:border-accent transition-all duration-200">
+                <div className="border-2 border-ink dark:border-chalk overflow-hidden aspect-video bg-chalk-dark dark:bg-ink flex items-center justify-center p-6 group-hover:shadow-brutal-accent group-hover:border-accent transition-all duration-200">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                    className="w-full h-full object-contain grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                   />
                 </div>
               </div>
@@ -57,7 +57,7 @@ const Projects: React.FC = () => {
                   {project.categories.map(cat => (
                     <span
                       key={cat}
-                      className="font-mono text-[10px] font-bold uppercase tracking-wider border border-accent/50 text-accent px-2 py-0.5"
+                      className="font-mono text-[10px] font-bold uppercase tracking-wider border-2 border-accent/50 text-accent px-2 py-0.5"
                     >
                       {cat}
                     </span>

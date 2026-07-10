@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
-import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -32,7 +31,6 @@ const App: React.FC = () => {
             <Route path="/contact"    element={<Contact />} />
           </Routes>
         </main>
-        <Footer />
       </div>
     </HashRouter>
   );

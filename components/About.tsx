@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import { TECH_STACK, PROJECTS } from '../constants';
 
 const About: React.FC = () => {
-  const profileImageUrl = "https://lh3.googleusercontent.com/d/1NhRZKbsmyTk1HKx48e5o-a8o_E4tYq_s";
+  const base = import.meta.env.BASE_URL;
+  const profileImageUrl = `${base}IMG_1100.jpeg`;
+  const profileFallbackUrl = `${base}portrait.svg`;
 
   const socialLinks = [
     { label: 'Email',    url: 'mailto:sra.303@gmail.com' },
@@ -29,7 +31,7 @@ const About: React.FC = () => {
               href={link.url}
               target={link.label !== 'Email' ? '_blank' : undefined}
               rel={link.label !== 'Email' ? 'noopener noreferrer' : undefined}
-              className="font-mono text-[10px] font-bold uppercase tracking-widest text-mid hover:text-accent transition-colors"
+              className="font-mono text-[10px] font-bold uppercase tracking-widest text-mid hover:text-accent focus-visible:outline-none focus-visible:text-accent transition-colors"
             >
               {link.label}
             </a>
@@ -80,7 +82,7 @@ const About: React.FC = () => {
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 bg-ink dark:bg-chalk text-chalk dark:text-ink font-mono text-xs font-bold uppercase tracking-widest px-8 py-4 border-2 border-ink dark:border-chalk shadow-brutal dark:shadow-brutal-chalk hover:bg-accent hover:border-accent hover:shadow-brutal-accent dark:hover:bg-accent dark:hover:text-chalk dark:hover:border-accent transition-all duration-150 w-fit"
+            className="inline-flex items-center gap-3 bg-ink dark:bg-chalk text-chalk dark:text-ink font-mono text-xs font-bold uppercase tracking-widest px-8 py-4 border-2 border-ink dark:border-chalk shadow-brutal dark:shadow-brutal-chalk hover:bg-accent hover:border-accent hover:shadow-brutal-accent dark:hover:bg-accent dark:hover:text-chalk dark:hover:border-accent active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-150 w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-chalk dark:focus-visible:ring-offset-ink"
           >
             <span className="material-symbols-outlined text-[18px]">coffee</span>
             Let's Grab a Coffee
@@ -90,14 +92,17 @@ const About: React.FC = () => {
         {/* Profile image */}
         <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">
           <div className="relative w-full max-w-sm">
-            {/* Offset accent block */}
-            <div className="absolute top-3 left-3 right-0 bottom-0 bg-accent -z-10"></div>
+            {/* Offset accent block — peeks down-right to match brutal shadow direction */}
+            <div className="absolute top-4 left-4 -right-4 -bottom-4 bg-accent -z-10"></div>
             <div className="relative border-2 border-ink dark:border-chalk overflow-hidden aspect-[3/4] bg-chalk-dark">
               <img
                 src={profileImageUrl}
                 alt="Siraj Akmal"
                 className="absolute inset-0 w-full h-full object-cover grayscale contrast-110"
-                onError={() => { console.warn('Could not load profile image.'); }}
+                onError={(e) => {
+                  const img = e.currentTarget;
+                  if (img.src !== profileFallbackUrl) img.src = profileFallbackUrl;
+                }}
               />
             </div>
             <div className="mt-3 flex justify-between font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-mid">
@@ -128,10 +133,10 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PROJECTS.slice(0, 3).map((work) => (
             <div key={work.title} className="group cursor-pointer">
-              <div className="border-2 border-ink dark:border-chalk overflow-hidden aspect-[4/3] relative group-hover:shadow-brutal-accent group-hover:border-accent transition-all duration-200">
+              <div className="border-2 border-ink dark:border-chalk overflow-hidden aspect-[4/3] relative bg-chalk-dark dark:bg-ink group-hover:shadow-brutal-accent group-hover:border-accent transition-all duration-200">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                  style={{ backgroundImage: `url('${work.image}')` }}
+                  className="absolute inset-0 bg-contain bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
+                  style={{ backgroundImage: `url('${work.image}')`, margin: '12%' }}
                 />
                 <div className="absolute inset-0 bg-ink/30 group-hover:bg-transparent transition-colors" />
               </div>
